@@ -11,7 +11,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,15 +34,33 @@ public abstract class DActivity extends Activity {
 
     private static Map<Class, String> sSetListenerMethodMap = new HashMap<Class, String>();
 
-    public void initAnnotation(final DActivity activity) {
-
-        ViewFinder viewFinder = new ViewFinder() {
-            public View findViewById(int id) { return activity.findViewById(id); }
-        };
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         try {
-            initAnnotatedFields(DActivity.class, activity, viewFinder);
+
+            initAnnotation();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void initAnnotation() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException {
+
+        Class clazz = getClass();
+
+        List<Class> list = new ArrayList<Class>();
+        do {
+            list.add(clazz);
+
+        } while ((clazz = clazz.getSuperclass()) != DActivity.class);
+        ViewFinder viewFinder = new ViewFinder() {
+            public View findViewById(int id) {
+                return DActivity.this.findViewById(id);
+            }
+        };
+        for (int i = list.size() - 1; i >= 0; --i) {
+            initAnnotatedFields(list.get(i), this, viewFinder);
         }
     }
 
@@ -60,7 +80,7 @@ public abstract class DActivity extends Activity {
                 Annotation anno = annotations[j];
 
                 if (ViewInject.class.isAssignableFrom(anno.getClass())) {
-                    ViewInject annotation = (ViewInject)anno;
+                    ViewInject annotation = (ViewInject) anno;
                     View view = viewFinder.findViewById(annotation.value());
                     field.setAccessible(true);
                     field.set(object, view);
@@ -74,7 +94,7 @@ public abstract class DActivity extends Activity {
         }
     }
 
-    private static void setListenersForView(Class clazz, ViewInject annotation, View view, Object listener) throws InvocationTargetException
+    public static void setListenersForView(Class clazz, ViewInject annotation, View view, Object listener) throws InvocationTargetException
             , IllegalAccessException, NoSuchMethodException, InstantiationException {
         Class[] listeners = annotation.listeners();
 

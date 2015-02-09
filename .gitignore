@@ -7,14 +7,5 @@
 .idea/workspace.xml
 .idea/copyright/profiles_settings.xml
 .idea/scopes/scope_settings.xml
-out/production/DCWFramework/com/dcw/adaoframework/DActivity$1.class
-out/production/DCWFramework/com/dcw/adaoframework/DActivity.class
-out/production/DCWFramework/com/dcw/adaoframework/view/ViewFinder.class
-out/production/DCWFramework/com/dcw/adaoframework/view/annotation/ViewInject.class
-out/production/DCWFramework/com/dcw/framework/adaoframework/BuildConfig.class
-out/production/DCWFramework/com/dcw/framework/adaoframework/R$attr.class
-out/production/DCWFramework/com/dcw/framework/adaoframework/R$layout.class
-out/production/DCWFramework/com/dcw/framework/adaoframework/R$string.class
-out/production/DCWFramework/com/dcw/framework/adaoframework/R.class
-out/production/DCWFramework/layout/main.xml
-out/production/DCWFramework/values/strings.xml
+idea/*
+out/*
