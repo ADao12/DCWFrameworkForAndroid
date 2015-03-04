@@ -17,13 +17,10 @@ import java.lang.annotation.Target;
  * @author JiaYing.Cheng
  * @version 1.0
  * @email adao12.vip@gmail.com
- * @create 15/2/7
+ * @create 15/2/13
  */
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface ViewInject {
-
+public @interface InjectLayout {
     int value();
-
-    Class<?>[] listeners();
 }

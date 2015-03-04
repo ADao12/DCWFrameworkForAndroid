@@ -1,6 +1,4 @@
-package com.dcw.adaoframework.view;
-
-import android.view.View;
+package com.dcw.adaoframework.pojo;
 
 /**
  * <p>Title: ucweb</p>
@@ -14,8 +12,11 @@ import android.view.View;
  * @author JiaYing.Cheng
  * @version 1.0
  * @email adao12.vip@gmail.com
- * @create 15/2/7
+ * @create 15/3/4
  */
- public interface ViewFinder {
-    View findViewById(int id);
- }
+public interface IParser {
+
+    void createRequest();
+
+    void parse(Object obj);
+}
