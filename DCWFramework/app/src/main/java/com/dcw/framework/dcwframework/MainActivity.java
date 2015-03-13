@@ -3,6 +3,8 @@ package com.dcw.framework.dcwframework;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,11 +33,13 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         DCWAnnotation.inject(this);
 //        mTVContent.setText("aaa");
 //        adapter = new SimpleAdapter(this);
 //        listOfThings.setAdapter(adapter);
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, new LoadingFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, new RichTextFragment()).commit();
     }
 
 //    @Override

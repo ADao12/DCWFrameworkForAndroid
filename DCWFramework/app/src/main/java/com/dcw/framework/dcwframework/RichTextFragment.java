@@ -51,38 +51,27 @@ public class RichTextFragment extends Fragment {
         View convertView = inflater.inflate(R.layout.fragment_rich_text, null);
         DCWAnnotation.inject(this, convertView);
 
-        String text = "Google www \n电话:1234812121 \n邮件:sd1233333@qq.com  \n网址:百度 ";
+        String text = "文本点击事件测试:\n1.给新文本添加部分点击\n谷歌\n2.给整个新文本添加点击\n百度网址\n";
+        int start = text.length() + 3;
+        int end = start + 5;
         //给选中的文字添加链接和点击事件
-//        setTextLinkedStringBuilder(mTVContent, text, new String[]{"Google", "www", "百度"});
-//        new RichTextBuilder(getActivity()).append(text).addLinkForStr(mTVContent, new String[]{"Google", "www", "百度"}, new TouchableSpan.OnClickListener[]{new TouchableSpan.OnClickListener() {
-//            @Override
-//            public void onClick(String content) {
-//                Toast.makeText(getActivity(), content, 0).show();
-//                Log.e(TAG, content);
-//            }
-//        }}, "a", "b", null);
-//
-        Spannable ssb = new RichTextBuilder(getActivity()).append("abc").appendTouchableText("gle", 0, 3, new TouchableSpan.OnClickListener() {
+        Spannable sp = new RichTextBuilder(getActivity()).append("文本点击事件测试:\n1.给新文本添加部分点击\n").appendTouchableText("谷歌网址", 0, 2, new TouchableSpan.OnClickListener() {
             @Override
             public void onClick(String content) {
                 Toast.makeText(getActivity(), content, 0).show();
-                Log.e(TAG, content);
             }
-        }, "a").append("abc").append("abc").appendTouchableText("gle", 0, 3, new TouchableSpan.OnClickListener() {
+        }, "www.google.com").append("\n2.给整个新文本添加点击\n").appendTouchableText("百度网址", new TouchableSpan.OnClickListener() {
             @Override
             public void onClick(String content) {
                 Toast.makeText(getActivity(), content, 0).show();
-                Log.e(TAG, content);
             }
-        }, "a").append("abcd", 1, 4).build();
-//        Spannable ssb = new RichTextBuilder(getActivity()).append("abc").appendTouchableEdge(1, 4, new TouchableSpan.OnClickListener() {
-//            @Override
-//            public void onClick(String content) {
-//                Toast.makeText(getActivity(), content, 0).show();
-//                Log.e(TAG, content);
-//            }
-//        }, "a").build();
-        mTVContent.setText(ssb);
+        }, "www.baidu.com").append("\n3.给已存在文本添加点击\n").appendTouchableEdge(start, end, new TouchableSpan.OnClickListener() {
+            @Override
+            public void onClick(String content) {
+                Toast.makeText(getActivity(), content, 0).show();
+            }
+        }, "已存在文本").build();
+        mTVContent.setText(sp);
         mTVContent.setMovementMethod(LinkTouchMovementMethod.getInstance());
         return convertView;
     }
