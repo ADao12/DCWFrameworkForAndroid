@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_content1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="64dp"
+        android:gravity="center"
+        android:text="内容1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_content1"
+        android:background="@color/link_text_material_light"/>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_below="@+id/tv_content1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_content2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="64dp"
+            android:gravity="center"
+            android:text="内容2" />
+
+        <ViewStub
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/fragment_rich_text" />
+
+        <TextView
+            android:id="@+id/tv_content3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_content"
+            android:textSize="64dp"
+            android:gravity="center"
+            android:text="内容3" />
+    </LinearLayout>
+
+</LinearLayout>
