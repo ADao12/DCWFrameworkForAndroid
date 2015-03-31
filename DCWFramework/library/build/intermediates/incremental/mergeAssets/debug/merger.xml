@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/DaoCaoWu/Documents/Github/ADao12/DCWFrameworkForAndroid/DCWFramework/library/src/main/assets"/></dataSet><dataSet config="debug"><source path="/Users/DaoCaoWu/Documents/Github/ADao12/DCWFrameworkForAndroid/DCWFramework/library/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\GitWorksapce\DCWFrameworkForAndroid\DCWFramework\library\src\main\assets"/></dataSet><dataSet config="debug"><source path="E:\GitWorksapce\DCWFrameworkForAndroid\DCWFramework\library\src\debug\assets"/></dataSet></merger>
