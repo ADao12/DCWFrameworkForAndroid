@@ -2,20 +2,11 @@ package com.dcw.framework.dcwframework;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.toolbox.Volley;
 import com.dcw.adaoframework.view.DCWAnnotation;
 import com.dcw.adaoframework.view.annotation.InjectLayout;
-import com.dcw.adaoframework.view.annotation.InjectView;
-
-import static android.widget.Toast.LENGTH_SHORT;
 
 @InjectLayout(R.layout.main)
 public class MainActivity extends FragmentActivity {
@@ -39,7 +30,7 @@ public class MainActivity extends FragmentActivity {
 //        mTVContent.setText("aaa");
 //        adapter = new SimpleAdapter(this);
 //        listOfThings.setAdapter(adapter);
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, new RichTextFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, new AlignWrapFragment()).commit();
     }
 
 //    @Override

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 表情 -->
+
+    <declare-styleable name="PageIndicator">
+        <attr name="dot_drawable_page_Indicator" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="EmotionSelector">
+        <attr name="page_height" format="reference|dimension" />
+
+        <attr name="page_type">
+            <enum name="small" value="2" />
+            <enum name="normal" value="1" />
+            <!-- default value -->
+        </attr>
+
+        <attr name="tab_height" format="reference|dimension" />
+        <attr name="tab_background" format="reference" />
+        <attr name="tab_text_color" format="reference" />
+        <attr name="tab_text_size" format="reference|dimension" />
+    </declare-styleable>
+</resources>

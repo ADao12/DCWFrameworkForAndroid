@@ -9,4 +9,18 @@
         <item name="android:background">@android:drawable/list_selector_background</item>
     </style>
 
+    <style name="top_bar_btn_comm_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textColor">@color/top_bar_im_right_button_text_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/home_page_720p_text_size_4</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
 </resources>
