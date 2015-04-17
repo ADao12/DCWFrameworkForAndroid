@@ -19,7 +19,6 @@ import com.dcw.adaoframework.util.TouchableSpan;
 import com.dcw.adaoframework.view.DCWAnnotation;
 import com.dcw.adaoframework.view.annotation.InjectLayout;
 import com.dcw.adaoframework.view.annotation.InjectView;
-import com.dcw.framework.dcwframework.widget.IndicateView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -82,7 +81,6 @@ public class RichTextFragment extends Fragment {
         }, "已存在文本").build();
         mTVContent.setText(sp);
         mTVContent.setMovementMethod(LinkTouchMovementMethod.getInstance());
-        ((ViewGroup) mTVContent.getParent()).addView(new IndicateView(getActivity()));
         return convertView;
     }
 
