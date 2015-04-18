@@ -5,3 +5,5 @@
 .DS_Store
 /build
 ../library/build/*
+*.class
+out/*
