@@ -1,10 +1,11 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
     defaultConfig {
+        applicationId "com.dcw.app.dcwdianping"
         minSdkVersion 8
         targetSdkVersion 21
         versionCode 1
