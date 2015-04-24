@@ -1,39 +1,44 @@
 package com.dcw.app.dcwdianping;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.dcw.app.dcwdianping.ui.adapter.BaseActivityWrapper;
+import com.dcw.app.dcwdianping.ui.adapter.FrameworkManifest;
+import com.dcw.app.dcwdianping.ui.adapter.ToastManager;
+import com.dcw.framework.uiframework.basic.FrameworkFacade;
+import com.dcw.framework.uiframework.ui.BaseFragment;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends BaseActivityWrapper {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        startFramework();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void startFramework() {
+        FrameworkFacade.getInstance().start(new FrameworkManifest(),this);
+        ToastManager.getInstance().init(this);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void pushFragment(BaseFragment fragment, boolean isForceNew) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fT = fragmentManager.beginTransaction();
+
+        if (fragment.isUseAnim()) {
+            fT.setCustomAnimations(fragment.mEnterAnimRes, fragment.mExitAnimRes,
+                    fragment.mPopEnterAnimRes, fragment.mPopExitAnimRes);
         }
 
-        return super.onOptionsItemSelected(item);
+        fT.replace(fragment.getContainer(), fragment, fragment.getClass().getName());
+        fT.commit();
     }
 }
