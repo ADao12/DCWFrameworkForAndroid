@@ -1,6 +1,6 @@
 package com.dcw.app.dcwdianping;
 
-public interface MessageConstant {
+public interface MessageDef {
 
     public final static String REQUEST = "calulate";
 }

@@ -10,13 +10,13 @@ import com.dcw.framework.uiframework.basic.Notification;
 import com.dcw.framework.uiframework.basic.RegisterMessages;
 import com.dcw.framework.uiframework.basic.RegisterNotifications;
 
-@RegisterMessages({MessageConstant.REQUEST, FrameworkMessage.LAUNCHER_CONTROLLER_INVOKE})
+@RegisterMessages({MessageDef.REQUEST, FrameworkMessage.LAUNCHER_CONTROLLER_INVOKE})
 @RegisterNotifications({NotificationDef.CHANGE_USER_NAME})
 public class ModuleController extends BaseController {
 
     @Override
     public void handleMessage(String messageId, Bundle messageData, IResultListener listener) {
-        if (messageId == MessageConstant.REQUEST) {
+        if (messageId == MessageDef.REQUEST) {
             Bundle bundle = new Bundle();
             bundle.putString("CODE", "200");
             listener.onResult(bundle);

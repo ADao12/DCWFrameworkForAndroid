@@ -21,7 +21,7 @@ import java.util.regex.PatternSyntaxException;
 /**
  * A builder help you make rich text by {@link @Spannable} in a simple way.
  *
- * @author maxt
+ * @author JiaYing.Cheng
  */
 public class RichTextBuilder {
 
