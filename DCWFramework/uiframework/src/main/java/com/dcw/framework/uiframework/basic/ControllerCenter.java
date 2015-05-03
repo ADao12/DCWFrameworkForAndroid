@@ -4,20 +4,7 @@ import android.text.TextUtils;
 
 import java.util.HashMap;
 
-/**
- * <p>Title: ucweb</p>
- *
- * <p>Description: </p>
- *  ......
- * <p>Copyright: Copyright (c) 2015</p>
- *
- * <p>Company: ucweb.com</p>
- *
- * @author JiaYing.Cheng
- * @email adao12.vip@gmail.com
- * @create 2015/3/18
- * @version 1.0
- */class ControllerCenter implements ControllerCenterCallback {
+class ControllerCenter implements ControllerCenterCallback {
 
     private IFrameworkManifest mManifest = null;
     private Environment mEnv = null;
@@ -92,6 +79,7 @@ import java.util.HashMap;
         if(controller != null) {
             controller.setEnvironment(mEnv);
             controller.setControllerCenterCallback(this);
+            controller.onInit();
         }
 
         return controller;

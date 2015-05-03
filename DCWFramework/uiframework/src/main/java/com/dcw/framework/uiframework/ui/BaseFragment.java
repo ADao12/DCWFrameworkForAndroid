@@ -17,23 +17,13 @@ import com.dcw.framework.uiframework.basic.IResultListener;
 import com.dcw.framework.uiframework.basic.Notification;
 import com.dcw.framework.uiframework.basic.RegisterNotifications;
 
-
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-18
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public abstract class BaseFragment extends Fragment implements View.OnClickListener,EnvironmentCallback,INotify {
 
     private IResultListener mResultListener;
 
     private static final long ITEM_CLICK_COOLING_TIME_IN_MS = 500;
     private long mLastItemClickTimeInMS;
-    private Bundle mBundle;
+    private Bundle mBundle = new Bundle();
 
     private Environment mEnv;
 
@@ -161,7 +151,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void registerNotification() {
+    private void registerNotification() {
         String[] notifications = getNotification();
 
         for (int i = 0; i < notifications.length; i++) {
@@ -169,7 +159,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void unregisterNotification(){
+    private void unregisterNotification(){
         String[] notifications = getNotification();
 
         for (int i = 0; i < notifications.length; i++) {
@@ -207,6 +197,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             }
             getActivity().onBackPressed();
         }
+    }
+
+    public void scrollToTop() {
+
     }
 
     public static boolean hideKeyboard(Context ctx, IBinder binder) {

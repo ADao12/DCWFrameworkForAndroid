@@ -5,15 +5,6 @@ import android.os.Bundle;
 
 import com.dcw.framework.uiframework.ui.BaseFragment;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-18
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 class EnvironmentImpl implements Environment {
 
     Context mContext;
@@ -33,6 +24,16 @@ class EnvironmentImpl implements Environment {
     @Override
     public void sendMessageForResult(String messageId, Bundle messageData, IResultListener listener) {
         mMsgBroker.sendMessageForResult(messageId, messageData, listener);
+    }
+
+    @Override
+    public Bundle sendMessageSync(String messageId) {
+        return mMsgBroker.sendMessageSync(messageId);
+    }
+
+    @Override
+    public Bundle sendMessageSync(String messageId, Bundle messageData) {
+        return mMsgBroker.sendMessageSync(messageId,messageData);
     }
 
     public void setMsgBroker(MsgBroker msgBroker) {
@@ -79,7 +80,9 @@ class EnvironmentImpl implements Environment {
     public void startFragmentForResult(String fragmentName, Bundle param, IResultListener listener, boolean useAnim, boolean forceNew) {
         BaseFragment fragment = FragmentLoaderFactory.getInstance().getFragmentLoader(IFragmentLoader.FRAGMENT_TYPE_NORMAL).loadFragment(fragmentName);
         fragment.setEnvironment(this);
-        fragment.setBundleArguments(param);
+        if(param != null) {
+            fragment.setBundleArguments(param);
+        }
         fragment.setResultListener(listener);
         fragment.setUseAnim(useAnim);
         fragment.show(forceNew);

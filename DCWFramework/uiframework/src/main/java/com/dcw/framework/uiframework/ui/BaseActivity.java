@@ -8,15 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-19
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public class BaseActivity extends FragmentActivity {
 
     public final static String INTENT_EXTRA_FRAGMENT_TAG = "ftag";
@@ -80,7 +71,7 @@ public class BaseActivity extends FragmentActivity {
         }
 
         if (fragment != null) {
-            fT.replace(fragment.getContainer(), fragment, fragment.getClass().getName());
+            fT.replace(android.R.id.content, fragment, fragment.getClass().getName());
             fT.addToBackStack(fragment.getClass().getName());
         }
 

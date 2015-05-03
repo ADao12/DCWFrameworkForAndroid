@@ -17,6 +17,8 @@ public interface Environment {
     public void sendMessage(String messageId);
     public void sendMessage(String messageId, Bundle messageData);
     public void sendMessageForResult(String messageId, Bundle messageData, IResultListener listener);
+    public Bundle sendMessageSync(String messageId);
+    public Bundle sendMessageSync(String messageId, Bundle messageData);
     public Context getAppContext();
     public void sendNotification(Notification notification);
     public void registerNotification(String notifycationId, INotify notify);

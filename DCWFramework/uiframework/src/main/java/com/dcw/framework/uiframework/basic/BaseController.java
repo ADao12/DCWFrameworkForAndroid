@@ -2,18 +2,18 @@ package com.dcw.framework.uiframework.basic;
 
 import android.os.Bundle;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-18
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
+
 public abstract class BaseController implements IController,INotify{
     Environment mEnv;
     private  ControllerCenterCallback mCenterCallback = null;
+
+    public BaseController() {
+    }
+
+    @Override
+    public void onInit() {
+        registerNotification();
+    }
 
     @Override
     public void setEnvironment(Environment environment) {
@@ -33,16 +33,6 @@ public abstract class BaseController implements IController,INotify{
     @Override
     public void setControllerCenterCallback(ControllerCenterCallback callback) {
         mCenterCallback = callback;
-    }
-
-    @Override
-    public void registerMessage(String message) {
-
-    }
-
-    @Override
-    public void unRegisterMessage(String message) {
-
     }
 
     @Override
@@ -66,6 +56,11 @@ public abstract class BaseController implements IController,INotify{
         if(mEnv != null){
             mEnv.sendMessageForResult(messageId, messageData, listener);
         }
+    }
+
+    @Override
+    public Bundle handleMessageSync(String messageId, Bundle messageData) {
+        return null;
     }
 
     public void startFragment(Class fragment){

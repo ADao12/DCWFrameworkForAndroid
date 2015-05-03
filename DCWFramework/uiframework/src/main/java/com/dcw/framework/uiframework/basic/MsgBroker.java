@@ -8,20 +8,7 @@ import android.text.TextUtils;
 
 import java.util.HashMap;
 
-/**
- * <p>Title: ucweb</p>
- *
- * <p>Description: </p>
- *  ......
- * <p>Copyright: Copyright (c) 2015</p>
- *
- * <p>Company: ucweb.com</p>
- *
- * @author JiaYing.Cheng
- * @email adao12.vip@gmail.com
- * @create 2015/3/19
- * @version 1.0
- */class MsgBroker implements Handler.Callback {
+class MsgBroker implements Handler.Callback {
     private static final String KEY_MESSAGE_ID = "msg_id";
     private static final String KEY_MESSAGE_BODY = "msg_body";
     private static final String KEY_MESSAGE_LISTENER = "msg_listener";
@@ -96,6 +83,25 @@ import java.util.HashMap;
         message.obj = bundle;
 
         mMainHandler.sendMessage(message);
+    }
+
+    public Bundle sendMessageSync(String messageId){
+        return sendMessageSync(messageId,null);
+    }
+
+    public Bundle sendMessageSync(String messageId, Bundle messageData){
+        Bundle result = null;
+        String msgHandlerID = mMessageHandlerMap.get(messageId);
+        if(TextUtils.isEmpty(msgHandlerID)) {
+            return  result;
+        }
+
+        IMessageHandler handler = mControllerCenter.getMessageHandler(msgHandlerID);
+        if (handler != null) {
+            result =  handler.handleMessageSync(messageId, messageData);
+        }
+
+        return result;
     }
 
     @Override
