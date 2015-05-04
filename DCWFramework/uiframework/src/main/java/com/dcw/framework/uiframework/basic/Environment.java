@@ -1,25 +1,17 @@
 package com.dcw.framework.uiframework.basic;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-18
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public interface Environment {
     public void sendMessage(String messageId);
     public void sendMessage(String messageId, Bundle messageData);
     public void sendMessageForResult(String messageId, Bundle messageData, IResultListener listener);
     public Bundle sendMessageSync(String messageId);
     public Bundle sendMessageSync(String messageId, Bundle messageData);
-    public Context getAppContext();
+    public Activity getCurrentActivity();
+    public void setCurrentActivity(Activity activity);
     public void sendNotification(Notification notification);
     public void registerNotification(String notifycationId, INotify notify);
     public void unregisterNotification(String notificationId, INotify notify);

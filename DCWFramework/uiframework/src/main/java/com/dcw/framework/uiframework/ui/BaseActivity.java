@@ -8,10 +8,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 
+import com.dcw.framework.uiframework.basic.Environment;
+
 public class BaseActivity extends FragmentActivity {
 
     public final static String INTENT_EXTRA_FRAGMENT_TAG = "ftag";
     public final static String INTENT_EXTRA_IS_FORCE_NEW = "isForceNew";
+    private Environment mEnv = null;
+
+    public void setEnvironment(Environment env) {
+        mEnv = env;
+    }
+
+    public Environment getEnvironment() {
+        return  mEnv;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +49,14 @@ public class BaseActivity extends FragmentActivity {
         if(!TextUtils.isEmpty(fragmentTag)){
             BaseFragment fragment = FragmentSwicher.popCacheFragment(fragmentTag);
             pushFragment(fragment, isForceNew);
+            if(fragment != null && fragment.getEnvironment() != null) {
+                setEnvironment(fragment.getEnvironment());
+            }
         }
     }
 
     @Override
     protected void onResume() {
-
         FragmentSwicher.cacheCurrentActivity(this);
         super.onResume();
     }

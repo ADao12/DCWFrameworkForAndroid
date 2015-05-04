@@ -8,15 +8,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-30
- * Author      : lihq@ucweb.com
- * Description : 通知中心
- * ****************************************************************************
- */
 class NotificationCenter {
     private HashMap<String,ArrayList<WeakReference<INotify>>> mNotifyMap = new HashMap<String, ArrayList<WeakReference<INotify>>>();
 
@@ -88,7 +79,9 @@ class NotificationCenter {
                 WeakReference<INotify> weakNotify = weakRefList.get(i);
                 if(weakNotify != null){
                     INotify notify = weakNotify.get();
-                    notify.onNotify(notification);
+                    if(notify != null){
+                        notify.onNotify(notification);
+                    }
                 }
             }
         }

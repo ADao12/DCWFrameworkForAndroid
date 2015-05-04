@@ -1,22 +1,9 @@
 package com.dcw.framework.uiframework.basic;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Looper;
 
-/**
- * <p>Title: ucweb</p>
- *
- * <p>Description: </p>
- *  ......
- * <p>Copyright: Copyright (c) 2015</p>
- *
- * <p>Company: ucweb.com</p>
- *
- * @author JiaYing.Cheng
- * @email adao12.vip@gmail.com
- * @create 2015/3/18
- * @version 1.0
- */public final class FrameworkFacade {
+public final class FrameworkFacade {
     private  static FrameworkFacade sInstance = null;
     private boolean mIsStarted = false;
 
@@ -33,12 +20,12 @@ import android.os.Looper;
         return  sInstance;
     }
 
-    public void start(IFrameworkManifest manifest,Context context) {
+    public void start(IFrameworkManifest manifest,Activity activity) {
         if (mIsStarted) {
             return;
         }
 
-        if (manifest == null || context == null) {
+        if (manifest == null || activity == null) {
             return;
         }
 
@@ -48,7 +35,7 @@ import android.os.Looper;
         EnvironmentImpl environment = new EnvironmentImpl();
         MsgBroker msgBroker = new MsgBroker();
 
-        environment.setContext(context);
+        environment.setCurrentActivity(activity);
         environment.setMsgBroker(msgBroker);
 
         msgBroker.setControllerCenter(controllerCenter);

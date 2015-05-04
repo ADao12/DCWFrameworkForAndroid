@@ -7,15 +7,6 @@ import android.content.Intent;
 
 import java.util.HashMap;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-19
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 class FragmentSwicher {
 
     private static HashMap<String, BaseFragment> gSwitchCache = new HashMap<String, BaseFragment>(2);
@@ -63,5 +54,8 @@ class FragmentSwicher {
 
     public static void cacheCurrentActivity(BaseActivity activity){
         gCurrentActivity = activity;
+        if(gCurrentActivity.getEnvironment() != null) {
+            gCurrentActivity.getEnvironment().setCurrentActivity(gCurrentActivity);
+        }
     }
 }

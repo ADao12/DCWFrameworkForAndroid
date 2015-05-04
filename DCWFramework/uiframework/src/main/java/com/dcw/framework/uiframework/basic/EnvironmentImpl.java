@@ -1,13 +1,13 @@
 package com.dcw.framework.uiframework.basic;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.dcw.framework.uiframework.ui.BaseFragment;
 
 class EnvironmentImpl implements Environment {
 
-    Context mContext;
+    Activity mActivity;
     MsgBroker mMsgBroker;
     NotificationCenter mNotificationCenter;
 
@@ -44,13 +44,14 @@ class EnvironmentImpl implements Environment {
         mNotificationCenter = center;
     }
 
-    public void setContext(Context context) {
-        mContext = context;
+    @Override
+    public void setCurrentActivity(Activity activity) {
+        mActivity = activity;
     }
 
     @Override
-    public Context getAppContext() {
-        return  mContext;
+    public Activity getCurrentActivity() {
+        return  mActivity;
     }
 
     @Override

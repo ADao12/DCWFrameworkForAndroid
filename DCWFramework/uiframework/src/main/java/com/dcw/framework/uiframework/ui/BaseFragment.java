@@ -183,7 +183,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     public void show(boolean forceNew){
-        FragmentSwicher.pushFragment(mEnv.getAppContext(), this, forceNew);
+        FragmentSwicher.pushFragment(mEnv.getCurrentActivity(), this, forceNew);
     }
 
 
