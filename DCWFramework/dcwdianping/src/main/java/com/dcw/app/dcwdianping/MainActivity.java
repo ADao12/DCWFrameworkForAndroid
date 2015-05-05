@@ -26,19 +26,4 @@ public class MainActivity extends BaseActivityWrapper {
         FrameworkFacade.getInstance().start(new FrameworkManifest(),this);
         ToastManager.getInstance().init(this);
     }
-
-    @Override
-    protected void pushFragment(BaseFragment fragment, boolean isForceNew) {
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fT = fragmentManager.beginTransaction();
-
-        if (fragment.isUseAnim()) {
-            fT.setCustomAnimations(fragment.mEnterAnimRes, fragment.mExitAnimRes,
-                    fragment.mPopEnterAnimRes, fragment.mPopExitAnimRes);
-        }
-
-        fT.replace(fragment.getContainer(), fragment, fragment.getClass().getName());
-        fT.commit();
-    }
 }

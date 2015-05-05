@@ -29,4 +29,6 @@
 
     <color name="orange_text">#ff8800</color>
     <color name="nav_title_text_color">#333333</color>
+
+    <color name="dialog_page_background">#80000000</color>
 </resources>

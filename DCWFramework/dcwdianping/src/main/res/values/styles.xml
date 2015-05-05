@@ -5,4 +5,31 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="top_bar_title_center">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textColor">@color/color_33</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">48dip</item>
+        <item name="android:layout_marginRight">48dip</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textSize">@dimen/text_large_size_20</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="top_bar_btn_comm_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textColor">@color/top_bar_right_btn_text_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_content_size_14</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
 </resources>

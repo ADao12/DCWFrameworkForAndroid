@@ -1,14 +1,5 @@
 package com.dcw.app.dcwdianping;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-25
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public interface BundleConstant {
 
     public final static String MESSAGE_CONTENT = "message";
@@ -20,4 +11,8 @@ public interface BundleConstant {
     public final static String NOTIFICATION_AGE = "age";
 
     public final static String RESULT = "result";
+
+    public static final String KEY_FRAGMENT_NAME = "fragmentName";
+    public static final String KEY_FRAGMENT_TYPE = "fragmentType";
+    public static final String KEY_FRAGMENT_DATA = "fragmentData";
 }
