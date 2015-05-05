@@ -3,4 +3,5 @@
     <item type="id" name="btn_back"/>
     <item type="id" name="tv_title"/>
     <item type="id" name="btn_right"/>
+    <item type="id" name="lv_list"/>
 </resources>

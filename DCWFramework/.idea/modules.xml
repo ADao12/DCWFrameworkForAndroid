@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DCWFramework.iml" filepath="$PROJECT_DIR$/DCWFramework.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dcwdaogenerator/dcwdaogenerator.iml" filepath="$PROJECT_DIR$/dcwdaogenerator/dcwdaogenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/dcwdianping/dcwdianping.iml" filepath="$PROJECT_DIR$/dcwdianping/dcwdianping.iml" />
       <module fileurl="file://$PROJECT_DIR$/dcwdianping/dcwrecommendation.iml" filepath="$PROJECT_DIR$/dcwdianping/dcwrecommendation.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
