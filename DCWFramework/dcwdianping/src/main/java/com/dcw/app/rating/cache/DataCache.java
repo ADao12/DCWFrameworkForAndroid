@@ -28,6 +28,7 @@ public class DataCache extends BaseCache {
 
     public DataCache(int cacheSizeInBytes) {
         super(cacheSizeInBytes, DEFAULT_CACHE_SIZE, DEFAULT_CACHE_TIME);
+        setCachePrefix(RequestCache.class.getSimpleName());
         mLruCache = new LruCache<String, Cache>(cacheSizeInBytes) {
             @Override
             protected int sizeOf(String key, Cache value) {

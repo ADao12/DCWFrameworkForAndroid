@@ -30,6 +30,8 @@ public class RequestCache extends BaseCache {
 
     public RequestCache(int cacheSizeInBytes) {
         super(cacheSizeInBytes, DEFAULT_CACHE_SIZE, DEFAULT_CACHE_TIME);
+        setCachePrefix(RequestCache.class.getSimpleName());
+        mLruCache = new LruCache<>(cacheSizeInBytes);
     }
 
     public LruCache<String, Map<String, Cache>> getLruCache() {
