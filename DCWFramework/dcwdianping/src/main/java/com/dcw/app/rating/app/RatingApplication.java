@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.dcw.app.rating.db.dao.DaoMaster;
 import com.dcw.app.rating.db.dao.DaoSession;
 
+import java.util.concurrent.RecursiveAction;
+
 /**
  * @author JiaYing.Cheng
  * @version 1.0
@@ -14,12 +16,14 @@ import com.dcw.app.rating.db.dao.DaoSession;
  */
 public class RatingApplication extends Application {
 
-    public DaoSession daoSession;
+    private DaoSession daoSession;
+    private static RatingApplication sInstance;
 
     @Override
     public void onCreate() {
         super.onCreate();
         setupDatabase();
+        sInstance =  this;
     }
 
     private void setupDatabase() {
@@ -31,5 +35,9 @@ public class RatingApplication extends Application {
 
     public DaoSession getDaoSession() {
         return daoSession;
+    }
+
+    public static RatingApplication getInstance() {
+        return sInstance;
     }
 }

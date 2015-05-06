@@ -12,14 +12,23 @@ public class RatingDaoGenerator {
         // com.xxx.bean:自动生成的Bean对象会放到/java-gen/com/xxx/bean中
 
         schema.setDefaultJavaPackageDao("com.dcw.app.rating.db.dao");
+        schema.enableKeepSectionsByDefault();
         // DaoMaster.java、DaoSession.java、BeanDao.java会放到/java-gen/com/xxx/dao中
 
         // 上面这两个文件夹路径都可以自定义，也可以不设置
 
-        initBoxBean(schema);
-        initUserBean(schema); // 初始化Bean了
+        initCacheDao(schema); // 初始化Bean了
 
         new DaoGenerator().generateAll(schema, "/Users/DaoCaoWu/Documents/Github/ADao12/DCWFrameworkForAndroid/DCWFramework/dcwdianping/src/main/java");// 自动创建
+    }
+
+    private static void initCacheDao(Schema schema) {
+        Entity box = schema.addEntity("Cache");
+        box.setTableName("cache");
+        box.addIntProperty("groupId");
+        box.addStringProperty("key").primaryKey();
+        box.addStringProperty("value");
+        box.addLongProperty("expireTime");
     }
 
     private static void initBoxBean(Schema schema) {

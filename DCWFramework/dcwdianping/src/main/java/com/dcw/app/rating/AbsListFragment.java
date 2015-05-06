@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.dcw.adaoframework.view.DCWAnnotation;
 import com.dcw.adaoframework.view.annotation.InjectView;
 import com.dcw.app.rating.app.RatingApplication;
-import com.dcw.app.rating.db.bean.Box;
-import com.dcw.app.rating.db.dao.BoxDao;
+import com.dcw.app.rating.db.bean.Cache;
+import com.dcw.app.rating.db.dao.CacheDao;
 import com.dcw.app.rating.ui.adapter.BaseFragmentWrapper;
 import com.dcw.app.rating.util.TaskExecutor;
 
@@ -28,7 +28,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
     @InjectView(R.id.lv_list)
     private ListView mLvBoxs;
 
-    private List<Box> mBoxs;
+    private List<Cache> mBoxs;
 
     @Override
     public Class getHostActivity() {
@@ -53,21 +53,21 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     @Override
     public void loadData() {
-        List<Box> boxes = new ArrayList<Box>();
+        List<Cache> boxes = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Box entity = new Box();
-            entity.setId((long)i);
-            entity.setDescription("lalalallalalalal");
-            entity.setName("box" + i % 2);
-            entity.setSlots(i);
+            Cache entity = new Cache();
+            entity.setKey(i + "");
+            entity.setValue("lalalallalalalal");
+            entity.setExpireTime(System.currentTimeMillis() / 1000 + i);
+            entity.setGroupId(i);
             boxes.add(entity);
         }
-        getBoxDao().insertOrReplaceInTx(boxes);
+        getCacheDao().insertOrReplaceInTx(boxes);
 
         TaskExecutor.scheduleTask(50, new Runnable() {
             @Override
             public void run() {
-                mBoxs = getBoxDao().loadAll();
+                mBoxs = getCacheDao().loadAll();
                 TaskExecutor.runTaskOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -88,7 +88,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     }
 
-    private BoxDao getBoxDao() {
-        return ((RatingApplication)getActivity().getApplication()).getDaoSession().getBoxDao();
+    private CacheDao getCacheDao() {
+        return RatingApplication.getInstance().getDaoSession().getCacheDao();
     }
 }

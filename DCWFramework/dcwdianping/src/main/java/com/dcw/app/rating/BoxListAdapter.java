@@ -8,9 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.dcw.app.rating.db.bean.Box;
+import com.dcw.app.rating.db.bean.Cache;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
  * @email adao12.vip@gmail.com
  * @create 15/5/5
  */
-public class BoxListAdapter extends ArrayAdapter<Box> {
+public class BoxListAdapter extends ArrayAdapter<Cache> {
 
     private LayoutInflater inflater;
     private Context context;
@@ -28,18 +27,18 @@ public class BoxListAdapter extends ArrayAdapter<Box> {
         this(context, null);
     }
 
-    public BoxListAdapter(Context context, List<Box> dataList) {
+    public BoxListAdapter(Context context, List<Cache> dataList) {
         super(context, 0);
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        for (Box box : dataList) {
+        for (Cache box : dataList) {
             add(box);
         }
     }
 
-    public void updateData(List<Box> boxList) {
+    public void updateData(List<Cache> boxList) {
         this.clear();
-        for (Box aBoxList : boxList) {
+        for (Cache aBoxList : boxList) {
             add(aBoxList);
         }
         notifyDataSetChanged();
@@ -76,10 +75,10 @@ public class BoxListAdapter extends ArrayAdapter<Box> {
     }
 
     private void fillViewWithData(int position, ViewHolder viewHolder) {
-        viewHolder.tvId.setText(context.getString(R.string.tv_label_item_id) + " " + getItem(position).getId().toString());
-        viewHolder.tvName.setText(context.getString(R.string.tv_label_box_name) + " " + getItem(position).getName());
-        viewHolder.tvSize.setText(context.getString(R.string.tv_label_box_size) + " " + getItem(position).getSlots());
-        viewHolder.tvDescription.setText(context.getString(R.string.tv_label_box_description) + " " + getItem(position).getDescription());
+        viewHolder.tvId.setText(context.getString(R.string.tv_label_item_id) + " " + getItem(position).getKey());
+        viewHolder.tvName.setText(context.getString(R.string.tv_label_box_name) + " " + getItem(position).getKey());
+        viewHolder.tvSize.setText(context.getString(R.string.tv_label_box_size) + " " + getItem(position).getGroupId());
+        viewHolder.tvDescription.setText(context.getString(R.string.tv_label_box_description) + " " + getItem(position).getExpireTime());
     }
 
     static class ViewHolder {
