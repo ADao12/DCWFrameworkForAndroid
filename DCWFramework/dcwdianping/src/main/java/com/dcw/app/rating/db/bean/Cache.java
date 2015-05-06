@@ -88,6 +88,13 @@ public class Cache {
         this.expireTime = expireTime;
         this.type = type;
     }
+
+    public Cache(int groupId, String value, long expireTime, int type) {
+        this.groupId = groupId;
+        this.value = value;
+        this.expireTime = expireTime;
+        this.type = type;
+    }
     // KEEP METHODS END
 
 }

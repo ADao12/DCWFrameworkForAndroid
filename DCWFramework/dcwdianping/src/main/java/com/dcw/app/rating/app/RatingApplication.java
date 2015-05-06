@@ -3,10 +3,11 @@ package com.dcw.app.rating.app;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.dcw.app.rating.cache.BaseCache;
+import com.dcw.app.rating.cache.DataCache;
 import com.dcw.app.rating.db.dao.DaoMaster;
 import com.dcw.app.rating.db.dao.DaoSession;
-
-import java.util.concurrent.RecursiveAction;
+import com.dcw.app.rating.error.ErrorReporter;
 
 /**
  * @author JiaYing.Cheng
@@ -16,14 +17,19 @@ import java.util.concurrent.RecursiveAction;
  */
 public class RatingApplication extends Application {
 
-    private DaoSession daoSession;
     private static RatingApplication sInstance;
+    private DaoSession daoSession;
+    private ErrorReporter mErrorReporter;
+    private DataCache mDataCache;
 
     @Override
     public void onCreate() {
         super.onCreate();
         setupDatabase();
         sInstance =  this;
+        mErrorReporter = new ErrorReporter(this);
+        mDataCache = new DataCache(1024 * 100);
+        mDataCache.clearExpiredCache();
     }
 
     private void setupDatabase() {
@@ -39,5 +45,13 @@ public class RatingApplication extends Application {
 
     public static RatingApplication getInstance() {
         return sInstance;
+    }
+
+    public ErrorReporter getErrorReporter() {
+        return mErrorReporter;
+    }
+
+    public BaseCache getDataCache() {
+        return mDataCache;
     }
 }
