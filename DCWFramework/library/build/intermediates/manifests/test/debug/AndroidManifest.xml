@@ -3,8 +3,8 @@
     package="com.dcw.framework.adaoframework.test" >
 
     <uses-sdk
-        android:minSdkVersion="1"
-        android:targetSdkVersion="1" />
+        android:minSdkVersion="10"
+        android:targetSdkVersion="21" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"

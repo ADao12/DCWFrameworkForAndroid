@@ -1,6 +1,7 @@
 package com.dcw.app.rating;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dcw.app.rating.db.bean.Cache;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -62,6 +67,7 @@ public class BoxListAdapter extends ArrayAdapter<Cache> {
         }
         editBackground(position, viewHolder);
         fillViewWithData(position, viewHolder);
+        setImageView(convertView, viewHolder);
 
         return convertView;
     }
@@ -81,11 +87,23 @@ public class BoxListAdapter extends ArrayAdapter<Cache> {
         viewHolder.tvDescription.setText(context.getString(R.string.tv_label_box_description) + " " + getItem(position).getExpireTime());
     }
 
+    private void setImageView(View convertView, ViewHolder viewHolder) {
+        String imageUri2 = "http://ww1.sinaimg.cn/mw600/6345d84ejw1dvxp9dioykg.gif";
+        Uri uri2 = Uri.parse(imageUri2);
+        DraweeController draweeController2 = Fresco.newDraweeControllerBuilder().setUri(uri2).setAutoPlayAnimations(true).build();
+        viewHolder.mSimpleDraweeView = (SimpleDraweeView) convertView.findViewById(R.id.fresco_img1);
+        viewHolder.mSimpleDraweeView.setController(draweeController2);
+        RoundingParams mRoundParams2 = viewHolder.mSimpleDraweeView.getHierarchy().getRoundingParams();
+        mRoundParams2.setRoundAsCircle(true);
+        viewHolder.mSimpleDraweeView.getHierarchy().setRoundingParams(mRoundParams2);
+    }
+
     static class ViewHolder {
         LinearLayout root;
         TextView tvId;
         TextView tvName;
         TextView tvSize;
         TextView tvDescription;
+        SimpleDraweeView mSimpleDraweeView;
     }
 }

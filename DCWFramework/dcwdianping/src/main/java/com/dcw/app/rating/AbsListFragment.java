@@ -13,6 +13,7 @@ import com.dcw.app.rating.db.bean.Cache;
 import com.dcw.app.rating.db.dao.CacheDao;
 import com.dcw.app.rating.ui.adapter.BaseFragmentWrapper;
 import com.dcw.app.rating.util.TaskExecutor;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     @Override
     public void loadUI() {
+        Fresco.initialize(getActivity());
         DCWAnnotation.inject(this, mRootView);
     }
 
