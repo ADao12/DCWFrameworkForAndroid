@@ -30,6 +30,8 @@ public class StateMachineTest {
         StateMachine sm = new StateMachine();
 
         State redState = new State("Red");
+        State greenState = new State("Green");
+        State blueState = new State("Blue");
         redState.setOnEnterCallback(eventCallback);
         redState.setOnLevelCallback(eventCallback);
 
@@ -39,19 +41,21 @@ public class StateMachineTest {
 
 
         StateMachineConfig config = new StateMachineConfig.Builder()
-                .setInitialState(new State("Green"))
+                .setInitialState(greenState)
                 .setInitialArgs("arg1", 2, new ArrayList<String>())
-                .addEvent(new StateEvent("changeColor", new State("Green"), redState, 1, 3, "3"))
+                .addEvent(new StateEvent("changeColor1", greenState, redState, 1, 3, "3"))
+                .addEvent(new StateEvent("changeColor2", greenState, redState, 1, 3, "3"))
+                .addEvent(new StateEvent("changeColor3", StateMachine.WILDCARD, blueState, 1, 3, "3"))
                 .addEvent(recoveryEvent)
                 .setOnBeforeAnyEventCallback(eventCallback)
                 .setOnAfterAnyEventCallback(eventCallback)
                 .build();
         sm.initial(config);
 
-        sm.doEvent("changeColor");
+        sm.doEvent("changeColor1");
         sm.doEvent(recoveryEvent.getName());
         sm.doEvent(StateMachine.START_UP);
-        sm.doEvent("changeColor");
+        sm.doEvent("changeColor3");
         sm.doEvent(recoveryEvent.getName());
         sm.getCurrentState().getName();
     }
