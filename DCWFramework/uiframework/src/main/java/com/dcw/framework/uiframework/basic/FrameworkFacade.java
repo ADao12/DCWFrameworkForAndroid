@@ -51,6 +51,10 @@ public final class FrameworkFacade {
 
     }
 
+    public Environment getEnvironment(){
+        return controllerCenter.getEnviroment();
+    }
+
     private static void checkThread() {
         if(Looper.myLooper() != Looper.getMainLooper()) {
             throw new RuntimeException("Framework must be started in UI Thread");

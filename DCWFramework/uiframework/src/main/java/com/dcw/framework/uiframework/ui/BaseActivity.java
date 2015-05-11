@@ -15,6 +15,7 @@ public class BaseActivity extends FragmentActivity {
     public final static String INTENT_EXTRA_FRAGMENT_TAG = "ftag";
     public final static String INTENT_EXTRA_IS_FORCE_NEW = "isForceNew";
     private Environment mEnv = null;
+    private boolean mIsForeground = false;
 
     public void setEnvironment(Environment env) {
         mEnv = env;
@@ -22,6 +23,10 @@ public class BaseActivity extends FragmentActivity {
 
     public Environment getEnvironment() {
         return  mEnv;
+    }
+
+    public boolean isForeground(){
+        return mIsForeground;
     }
 
     @Override
@@ -57,8 +62,22 @@ public class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onResume() {
-        FragmentSwicher.cacheCurrentActivity(this);
         super.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mIsForeground = true;
+        if(mEnv != null){
+            mEnv.setCurrentActivity(this);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mIsForeground = false;
     }
 
     protected void pushFragment(BaseFragment fragment, boolean isForceNew) {

@@ -24,6 +24,10 @@ class ControllerCenter implements ControllerCenterCallback {
         mEnv = env;
     }
 
+    public Environment getEnviroment(){
+        return mEnv;
+    }
+
     public void setMsgBroker(MsgBroker msgBroker) {
         mMsgBroker = msgBroker;
     }
