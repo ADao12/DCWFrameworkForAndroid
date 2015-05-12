@@ -55,7 +55,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     @Override
     public void loadData() {
-        List<Cache> boxes = new ArrayList<>();
+        List<Cache> boxes = new ArrayList<Cache>();
         for (int i = 0; i < 10; i++) {
             Cache entity = new Cache();
             entity.setKey(i + "");

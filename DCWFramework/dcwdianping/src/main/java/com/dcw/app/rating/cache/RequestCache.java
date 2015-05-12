@@ -31,7 +31,7 @@ public class RequestCache extends BaseCache {
     public RequestCache(int cacheSizeInBytes) {
         super(cacheSizeInBytes, DEFAULT_CACHE_SIZE, DEFAULT_CACHE_TIME);
         setCachePrefix(RequestCache.class.getSimpleName());
-        mLruCache = new LruCache<>(cacheSizeInBytes);
+        mLruCache = new LruCache<String, Map<String, Cache>>(cacheSizeInBytes);
     }
 
     public LruCache<String, Map<String, Cache>> getLruCache() {
@@ -166,7 +166,7 @@ public class RequestCache extends BaseCache {
 
         } else {
             L.d("hashMap is empty, set value to LruCache: key %s, groupId %s", key, cache.getGroupId());
-            hashMap = new HashMap<>(0);
+            hashMap = new HashMap<String, Cache>(0);
             hashMap.put(key, cache);
         }
         mLruCache.put(String.valueOf(cache.getGroupId()), hashMap);
@@ -180,7 +180,7 @@ public class RequestCache extends BaseCache {
 
         } else {
             L.d("hashMap is empty, set value to LruCache: key %s, groupId %s", key, groupId);
-            hashMap = new HashMap<>(0);
+            hashMap = new HashMap<String, Cache>(0);
             hashMap.put(key, new Cache(value, expireTime, Cache.CACHE_FROM_MEMORY));
         }
         mLruCache.put(String.valueOf(groupId), hashMap);
