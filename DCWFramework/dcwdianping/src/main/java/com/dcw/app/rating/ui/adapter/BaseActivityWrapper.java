@@ -14,18 +14,4 @@ public class BaseActivityWrapper extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    protected void pushFragment(BaseFragment fragment, boolean isForceNew) {
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fT = fragmentManager.beginTransaction();
-
-        if (fragment.isUseAnim()) {
-            fT.setCustomAnimations(fragment.mEnterAnimRes, fragment.mExitAnimRes,
-                    fragment.mPopEnterAnimRes, fragment.mPopExitAnimRes);
-        }
-
-        fT.replace(fragment.getContainer(), fragment, fragment.getClass().getName());
-        fT.commit();
-    }
 }

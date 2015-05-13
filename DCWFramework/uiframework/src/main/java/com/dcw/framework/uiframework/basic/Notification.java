@@ -2,15 +2,6 @@ package com.dcw.framework.uiframework.basic;
 
 import android.os.Bundle;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-03-30
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public class Notification {
     public String mId;
     public Bundle mBundleData;

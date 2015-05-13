@@ -4,15 +4,6 @@ import android.text.TextUtils;
 
 import java.lang.reflect.Constructor;
 
-/**
- * ****************************************************************************
- * Copyright @ 2009 - 2015 www.9game.cn All Rights Reserved
- * <p/>
- * Creation    : 2015-04-07
- * Author      : lihq@ucweb.com
- * Description : Tell me what does this class do
- * ****************************************************************************
- */
 public class ClassLoaderHelper {
 
     //动态加载设计时再考虑
