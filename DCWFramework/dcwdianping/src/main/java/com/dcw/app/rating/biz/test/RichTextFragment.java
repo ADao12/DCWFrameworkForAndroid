@@ -13,6 +13,7 @@ import com.dcw.framework.util.RichTextBuilder;
 import com.dcw.framework.util.TouchableSpan;
 import com.dcw.framework.view.annotation.InjectLayout;
 import com.dcw.framework.view.annotation.InjectView;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -84,7 +85,7 @@ public class RichTextFragment extends BaseFragmentWrapper {
                         StringBuffer sb = new StringBuffer();
                         for (Reviews review : contributors.reviews) {
 //                                sb.append(contributors.status).append("(").append(contributors.count).append(")");
-                            sb.append(review.review_id).append("(").append(review.text_excerpt).append(")");
+                            sb.append(review.reviewId).append("(").append(review.textExcerpt).append(")");
                         }
                         final CharSequence cs = sb.toString();
                         TaskExecutor.runTaskOnUiThread(new Runnable() {
@@ -117,8 +118,10 @@ public class RichTextFragment extends BaseFragmentWrapper {
     }
 
     static class Reviews {
-        long review_id;
-        String text_excerpt;
+        @SerializedName("review_id")
+        long reviewId;
+        @SerializedName("text_excerpt")
+        String textExcerpt;
     }
 
     interface GitHub {
