@@ -15,9 +15,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectLayout;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectLayout;
+import com.dcw.framework.view.annotation.InjectView;
 import com.devspark.appmsg.AppMsg;
 
 /**

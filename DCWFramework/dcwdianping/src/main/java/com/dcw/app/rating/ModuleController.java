@@ -3,12 +3,12 @@ package com.dcw.app.rating;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.dcw.framework.uiframework.basic.BaseController;
-import com.dcw.framework.uiframework.basic.FrameworkMessage;
-import com.dcw.framework.uiframework.basic.IResultListener;
-import com.dcw.framework.uiframework.basic.Notification;
-import com.dcw.framework.uiframework.basic.RegisterMessages;
-import com.dcw.framework.uiframework.basic.RegisterNotifications;
+import com.dcw.framework.pac.basic.BaseController;
+import com.dcw.framework.pac.basic.FrameworkMessage;
+import com.dcw.framework.pac.basic.IResultListener;
+import com.dcw.framework.pac.basic.Notification;
+import com.dcw.framework.pac.basic.RegisterMessages;
+import com.dcw.framework.pac.basic.RegisterNotifications;
 
 @RegisterMessages({MessageDef.REQUEST, FrameworkMessage.LAUNCHER_CONTROLLER_INVOKE})
 @RegisterNotifications({NotificationDef.CHANGE_USER_NAME})

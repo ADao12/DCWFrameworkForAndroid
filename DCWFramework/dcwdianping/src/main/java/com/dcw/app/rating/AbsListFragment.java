@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectView;
 import com.dcw.app.rating.app.RatingApplication;
 import com.dcw.app.rating.db.bean.Cache;
 import com.dcw.app.rating.db.dao.CacheDao;

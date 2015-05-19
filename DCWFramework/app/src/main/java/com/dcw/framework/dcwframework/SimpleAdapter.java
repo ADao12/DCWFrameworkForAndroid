@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectView;
 
 /**
  * <p>Title: ucweb</p>

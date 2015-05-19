@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectLayout;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectLayout;
+import com.dcw.framework.view.annotation.InjectView;
 import com.dcw.framework.dcwframework.widget.AlignWrapTextView;
 
 /**

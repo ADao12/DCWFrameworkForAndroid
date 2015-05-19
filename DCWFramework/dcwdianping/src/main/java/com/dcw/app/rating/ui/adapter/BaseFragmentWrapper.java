@@ -12,7 +12,7 @@ import com.dcw.app.rating.BundleConstant;
 import com.dcw.app.rating.R;
 import com.dcw.app.rating.ui.SpinningDialog;
 import com.dcw.app.rating.util.Util;
-import com.dcw.framework.uiframework.ui.BaseFragment;
+import com.dcw.framework.pac.ui.BaseFragment;
 
 
 public abstract class BaseFragmentWrapper extends BaseFragment {

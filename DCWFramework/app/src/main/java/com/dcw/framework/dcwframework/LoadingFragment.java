@@ -7,14 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectLayout;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectLayout;
+import com.dcw.framework.view.annotation.InjectView;
 
 /**
  * <p>Title: ucweb</p>

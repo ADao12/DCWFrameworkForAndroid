@@ -14,7 +14,7 @@
         android:layout_weight="1"
         android:layout_gravity="center">
 
-        <com.dcw.adaoframework.view.LoadingView
+        <com.dcw.framework.view.LoadingView
             android:id="@+id/img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

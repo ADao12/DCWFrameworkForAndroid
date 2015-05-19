@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dcw.adaoframework.util.LinkTouchMovementMethod;
-import com.dcw.adaoframework.util.RichTextBuilder;
-import com.dcw.adaoframework.util.TouchableSpan;
-import com.dcw.adaoframework.view.DCWAnnotation;
-import com.dcw.adaoframework.view.annotation.InjectView;
+import com.dcw.framework.util.LinkTouchMovementMethod;
+import com.dcw.framework.util.RichTextBuilder;
+import com.dcw.framework.util.TouchableSpan;
+import com.dcw.framework.view.DCWAnnotation;
+import com.dcw.framework.view.annotation.InjectView;
 import com.dcw.app.rating.ui.adapter.BaseFragmentWrapper;
 import com.dcw.app.rating.util.TaskExecutor;
 
