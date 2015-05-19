@@ -7,3 +7,5 @@
 ../library/build/*
 *.class
 out/*
+/.idea
+.idea
