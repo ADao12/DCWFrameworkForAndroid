@@ -1,4 +1,4 @@
-package com.dcw.adaoframework.util;
+package com.dcw.adaoframework.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -32,7 +32,7 @@
 
     </LinearLayout>
 
-    <com.dcw.adaoframework.util.LoadingView
+    <com.dcw.adaoframework.view.LoadingView
             android:id="@+id/loadingView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
