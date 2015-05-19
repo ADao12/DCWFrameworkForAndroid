@@ -1,7 +1,6 @@
 package com.dcw.app.rating.ui.adapter;
 
 
-import com.dcw.app.rating.ModuleController;
 import com.dcw.framework.pac.basic.IFrameworkManifest;
 
 public class FrameworkManifest implements IFrameworkManifest {
@@ -9,7 +8,7 @@ public class FrameworkManifest implements IFrameworkManifest {
     public String[] getControllers()
     {
         String[] controllers = new String[]{
-                ModuleController.class.getName(),
+                LauncherController.class.getName(),
         };
         return  controllers;
     }

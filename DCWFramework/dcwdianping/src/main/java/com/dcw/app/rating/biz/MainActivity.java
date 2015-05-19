@@ -1,4 +1,4 @@
-package com.dcw.app.rating;
+package com.dcw.app.rating.biz;
 
 import android.os.Bundle;
 
@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivityWrapper {
     }
 
     public void startFramework() {
-        FrameworkFacade.getInstance().start(new FrameworkManifest(),this);
+        FrameworkFacade.getInstance().start(new FrameworkManifest(), this);
         ToastManager.getInstance().init(this);
     }
 }

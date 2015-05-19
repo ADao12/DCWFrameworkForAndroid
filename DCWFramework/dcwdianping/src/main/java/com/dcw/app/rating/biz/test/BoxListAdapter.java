@@ -1,4 +1,4 @@
-package com.dcw.app.rating;
+package com.dcw.app.rating.biz.test;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dcw.app.rating.R;
 import com.dcw.app.rating.db.bean.Cache;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.generic.RoundingParams;

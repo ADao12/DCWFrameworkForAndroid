@@ -42,7 +42,7 @@ public class DCWAnnotation {
      * DO NOT USE: Exposed for generated code.
      */
     @SuppressWarnings("UnusedDeclaration") // Used by generated code.
-    private enum Finder {
+    public static enum Finder {
         VIEW {
             @Override
             protected View findView(Object source, int id) {
@@ -52,6 +52,11 @@ public class DCWAnnotation {
             @Override
             protected Context getContext(Object source) {
                 return ((View) source).getContext();
+            }
+
+            @Override
+            protected LayoutInflater getLayoutInflate(Object source) {
+                return LayoutInflater.from(getContext(source));
             }
         },
         ACTIVITY {
@@ -64,6 +69,11 @@ public class DCWAnnotation {
             protected Context getContext(Object source) {
                 return (Activity) source;
             }
+
+            @Override
+            protected LayoutInflater getLayoutInflate(Object source) {
+                return LayoutInflater.from(getContext(source));
+            }
         },
         DIALOG {
             @Override
@@ -75,10 +85,32 @@ public class DCWAnnotation {
             protected Context getContext(Object source) {
                 return ((Dialog) source).getContext();
             }
+
+            @Override
+            protected LayoutInflater getLayoutInflate(Object source) {
+                return LayoutInflater.from(getContext(source));
+            }
+        },
+        LAYOUT_INFLATER {
+            @Override
+            protected View findView(Object source, int id) {
+                return ((View) source).findViewById(id);
+            }
+
+            @Override
+            protected Context getContext(Object source) {
+                return ((LayoutInflater) source).getContext();
+            }
+
+            @Override
+            protected LayoutInflater getLayoutInflate(Object source) {
+                return (LayoutInflater)source;
+            }
         };
 
         protected abstract View findView(Object source, int id);
         protected abstract Context getContext(Object source);
+        protected abstract LayoutInflater getLayoutInflate(Object source);
 
     }
     private static final String TAG = DCWAnnotation.class.getSimpleName();
@@ -155,9 +187,28 @@ public class DCWAnnotation {
         inject(target, source, Finder.DIALOG);
     }
 
-    static void inject(Object target, final Object source, Finder finder) {
+    /**
+     * Inject annotated fields and methods in the specified {@code target} using the {@code source}
+     * {@link android.view.LayoutInflater} as the view root.
+     *
+     * @param target Target class for field injection.
+     * @param source View root on which IDs will be looked up.
+     */
+    public static View inject(Object target, LayoutInflater source) {
+       return inject(target, source, Finder.LAYOUT_INFLATER);
+    }
+
+    static View inject(Object target, Object source, Finder finder) {
         Class<?> targetClass = target.getClass();
         try {
+            if (finder == Finder.LAYOUT_INFLATER) {
+                if (source != null  && targetClass.isAnnotationPresent(InjectLayout.class)) {
+                    source = finder.getLayoutInflate(source).inflate((targetClass.getAnnotation(InjectLayout.class)).value(), null);
+                }
+                if (source == null) {
+                    throw new IllegalArgumentException("Must specify a layout resource with the @InjectLayout annotation on " + targetClass.getName());
+                }
+            }
             initAnnotatedType(target, source, finder);
             initAnnotatedFields(targetClass, target, source, finder);
         } catch (RuntimeException e) {
@@ -165,26 +216,27 @@ public class DCWAnnotation {
         } catch (Exception e) {
             throw new RuntimeException("Unable to inject views for " + target, e);
         }
+        return (View)source;
     }
 
-    public static void initAnnotatedType(Object target, Object source, Finder finder) throws InvocationTargetException
+    public static void initAnnotatedType(Object target, final Object source, Finder finder) throws InvocationTargetException
             , IllegalAccessException, NoSuchMethodException, InstantiationException {
         Class<?> targetClass = target.getClass();
         switch (finder) {
 
             case ACTIVITY:
-                if (((Activity) source).getWindow() != null && source != null && targetClass.isAnnotationPresent(InjectLayout.class)) {
-                    ((Activity) source).setContentView(LayoutInflater.from(finder.getContext(source)).inflate((targetClass.getAnnotation(InjectLayout.class)).value(), null));
+                if (source != null && ((Activity) source).getWindow() != null && targetClass.isAnnotationPresent(InjectLayout.class)) {
+                    ((Activity) source).setContentView(finder.getLayoutInflate(source).inflate((targetClass.getAnnotation(InjectLayout.class)).value(), null));
                 }
-                if (((Activity) source).getWindow() == null) {
+                if (source == null || ((Activity) source).getWindow() == null) {
                     throw new IllegalArgumentException("Must specify a layout resource with the @InjectLayout annotation on " + targetClass.getName());
                 }
                 break;
             case DIALOG:
-                if (((Dialog) source).getWindow() != null && source != null && targetClass.isAnnotationPresent(InjectLayout.class)) {
-                    ((Dialog) source).setContentView(LayoutInflater.from(finder.getContext(source)).inflate((targetClass.getAnnotation(InjectLayout.class)).value(), null));
+                if (source != null && ((Dialog) source).getWindow() != null && targetClass.isAnnotationPresent(InjectLayout.class)) {
+                    ((Dialog) source).setContentView(finder.getLayoutInflate(source).inflate((targetClass.getAnnotation(InjectLayout.class)).value(), null));
                 }
-                if (((Dialog) source).getWindow() == null) {
+                if (source == null || ((Dialog) source).getWindow() == null) {
                     throw new IllegalArgumentException("Must specify a layout resource with the @InjectLayout annotation on " + targetClass.getName());
                 }
                 break;

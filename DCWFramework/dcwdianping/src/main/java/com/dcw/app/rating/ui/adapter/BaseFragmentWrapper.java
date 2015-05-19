@@ -8,14 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.dcw.app.rating.BundleConstant;
+import com.dcw.app.rating.config.BundleConstant;
 import com.dcw.app.rating.R;
 import com.dcw.app.rating.ui.SpinningDialog;
 import com.dcw.app.rating.util.Util;
 import com.dcw.framework.pac.ui.BaseFragment;
+import com.dcw.framework.view.DCWAnnotation;
 
 
-public abstract class BaseFragmentWrapper extends BaseFragment {
+public abstract class BaseFragmentWrapper extends BaseFragment implements ICreateTemplate{
 
     public static final String ARGS_URL = "url";
     public static final String ARGS_TAB_INDEX = "args_tab_index";
@@ -45,6 +46,12 @@ public abstract class BaseFragmentWrapper extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (mRootView == null) {
+            mRootView = DCWAnnotation.inject(this, inflater);
+            loadData();
+            initUI();
+            setListeners();
+        }
         if (mRootView != null) {
             ViewGroup parent = (ViewGroup) mRootView.getParent();
             if (parent != null) {

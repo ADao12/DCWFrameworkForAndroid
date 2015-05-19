@@ -1,4 +1,4 @@
-package com.dcw.app.rating;
+package com.dcw.app.rating.biz.test;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,13 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.dcw.framework.view.DCWAnnotation;
-import com.dcw.framework.view.annotation.InjectView;
+import com.dcw.app.rating.R;
 import com.dcw.app.rating.app.RatingApplication;
+import com.dcw.app.rating.biz.MainActivity;
 import com.dcw.app.rating.db.bean.Cache;
 import com.dcw.app.rating.db.dao.CacheDao;
 import com.dcw.app.rating.ui.adapter.BaseFragmentWrapper;
 import com.dcw.app.rating.util.TaskExecutor;
+import com.dcw.framework.view.annotation.InjectLayout;
+import com.dcw.framework.view.annotation.InjectView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
@@ -24,7 +26,8 @@ import java.util.List;
  * @email adao12.vip@gmail.com
  * @create 15/5/5
  */
-public class AbsListFragment extends BaseFragmentWrapper implements ICreateSequence{
+@InjectLayout(R.layout.list_fragment)
+public class AbsListFragment extends BaseFragmentWrapper {
 
     @InjectView(R.id.lv_list)
     private ListView mLvBoxs;
@@ -38,19 +41,8 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (mRootView == null) {
-            mRootView = inflater.inflate(R.layout.list_fragment, null);
-            loadUI();
-            loadData();
-            setListeners();
-        }
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void loadUI() {
         Fresco.initialize(getActivity());
-        DCWAnnotation.inject(this, mRootView);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -73,7 +65,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
                 TaskExecutor.runTaskOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        initUI();
+                        mLvBoxs.setAdapter(new BoxListAdapter(getActivity(), mBoxs));
                     }
                 });
             }
@@ -82,7 +74,7 @@ public class AbsListFragment extends BaseFragmentWrapper implements ICreateSeque
 
     @Override
     public void initUI() {
-        mLvBoxs.setAdapter(new BoxListAdapter(getActivity(), mBoxs));
+
     }
 
     @Override
