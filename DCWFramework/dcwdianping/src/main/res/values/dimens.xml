@@ -10,4 +10,55 @@
     <dimen name="text_small_size_12">12dp</dimen>
 
     <dimen name="top_bar_height">48dip</dimen>
+
+    <!--文字大小-->
+    <!--主体-->
+    <dimen name="display_4">112sp</dimen>
+    <dimen name="display_3">56sp</dimen>
+    <dimen name="display_2">45sp</dimen>
+    <dimen name="display_1">34sp</dimen>
+    <!--大字标题;新闻提要-->
+    <dimen name="headline">24sp</dimen>
+    <!--标题-->
+    <dimen name="title">20sp</dimen>
+    <!--副标题-->
+    <dimen name="subhead">16sp</dimen>
+    <dimen name="subhead_small">15sp</dimen>
+    <!--内容-->
+    <dimen name="body">14sp</dimen>
+    <dimen name="body_small">13sp</dimen>
+    <!--标题，说明文字-->
+    <dimen name="caption">12sp</dimen>
+    <!--菜单-->
+    <dimen name="menu">14sp</dimen>
+    <!--按钮-->
+    <dimen name="button">14sp</dimen>
+    <!--文字大小-->
+
+    <!--相隔-->
+    <dimen name="display_2_leading">45pt</dimen>
+    <dimen name="display_1_leading">40pt</dimen>
+    <dimen name="headline_leading">32pt</dimen>
+    <dimen name="subhead_leading">28pt</dimen>
+    <dimen name="subhead_small_leading">24pt</dimen>
+    <dimen name="body_leading">24pt</dimen>
+    <dimen name="body_small_leading">20pt</dimen>
+    <!--相隔-->
+
+    <!--字间距-->
+    <dimen name="display_4_tracking">10pt</dimen>
+    <dimen name="display_3_tracking">5pt</dimen>
+    <dimen name="display_2_tracking">0pt</dimen>
+    <dimen name="display_1_tracking">0pt</dimen>
+    <dimen name="headline_tracking">0pt</dimen>
+    <dimen name="title_tracking">5pt</dimen>
+    <dimen name="subhead_tracking">10pt</dimen>
+    <dimen name="subhead_small_tracking">10pt</dimen>
+    <dimen name="body_tracking">10pt</dimen>
+    <dimen name="body_small_tracking">10pt</dimen>
+    <dimen name="caption_tracking">20pt</dimen>
+    <dimen name="menu_tracking">10pt</dimen>
+    <dimen name="button_tracking">10pt</dimen>
+    <!--字间距-->
+
 </resources>
