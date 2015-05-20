@@ -1,5 +1,7 @@
 package com.dcw.app.rating.biz.pojo.business;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,8 @@ public class Deal {
 
     private String url;
 
-    private String deal_id;
+	@SerializedName("deal_id")
+	private String dealId;
 
     private String title;
 
@@ -19,41 +22,54 @@ public class Deal {
 
     private String city;
 
-    private String list_price;
+	@SerializedName("list_price")
+	private String listPrice;
 
-    private String current_price;
+	@SerializedName("current_price")
+	private String currentPrice;
 
     private List<Region> regionss ;
 
     private List<Category> categoriess ;
 
-    private String purchase_count;
+	@SerializedName("purchase_count")
+	private String purchaseCount;
 
-    private String purchase_deadline;
+	@SerializedName("purchase_deadline")
+	private String purchaseDeadline;
 
-    private String publish_date;
+	@SerializedName("publish_date")
+	private String publishDate;
 
     private String details;
 
-    private String image_url;
+	@SerializedName("image_url")
+	private String imageUrl;
 
-    private String s_image_url;
+	@SerializedName("s_image_url")
+	private String sImageUrl;
 
-    private List<String> more_image_urlss ;
+	@SerializedName("more_image_urlss")
+	private List<String> moreImageUrlss;
 
-    private List<String> more_s_image_urlss ;
+	@SerializedName("more_s_image_urlss")
+	private List<String> moreSImageUrlss;
 
-    private String is_popular;
+	@SerializedName("is_popular")
+	private String isPopular;
 
     private String restrictions;
 
     private String notice;
 
-    private String deal_url;
+	@SerializedName("deal_url")
+	private String dealUrl;
 
-    private String deal_h5_url;
+	@SerializedName("deal_h5_url")
+	private String dealH5Url;
 
-    private String commission_ratio;
+	@SerializedName("commission_ratio")
+	private String commissionRatio;
 
     private List<Business> businessess ;
 }

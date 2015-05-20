@@ -1,29 +1,44 @@
 package com.dcw.app.rating.biz.pojo.book;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by adao12 on 2015/5/20.
  */
 public class Review {
 
-    private String review_id;
+    @SerializedName("review_id")
+    private String reviewId;
 
-    private String user_nickname;
+    @SerializedName("user_nickname")
+    private String userNickname;
 
-    private String created_time;
+    @SerializedName("created_time")
+    private String createdTime;
 
-    private String text_excerpt;
+    @SerializedName("text_excerpt")
+    private String textExcerpt;
 
-    private String review_rating;
+    @SerializedName("review_rating")
+    private String reviewRating;
 
-    private String rating_img_url;
+    @SerializedName("rating_img_url")
+    private String ratingImgUrl;
 
-    private String rating_s_img_url;
+    @SerializedName("rating_s_img_url")
+    private String ratingSImgUrl;
 
-    private String product_rating;
+    @SerializedName("product_rating")
+    private String productRating;
 
-    private String decoration_rating;
+    @SerializedName("decoration_rating")
+    private String decorationRating;
 
-    private String service_rating;
+    @SerializedName("service_rating")
+    private String serviceRating;
 
-    private String review_url;
+    @SerializedName("review_url")
+    private String reviewUrl;
+
 }
+

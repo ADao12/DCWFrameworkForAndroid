@@ -1,5 +1,7 @@
 package com.dcw.app.rating.biz.pojo.city;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,20 +9,9 @@ import java.util.List;
  */
 public class City {
 
-    private String city_name;
+	@SerializedName("city_name")
+	private String cityName;
 
     private List<String> districtss ;
 
-    public void setCity_name(String city_name){
-        this.city_name = city_name;
-    }
-    public String getCity_name(){
-        return this.city_name;
-    }
-    public void setDistricts(List<String> districts){
-        this.districtss = districts;
-    }
-    public List<String> getDistricts(){
-        return this.districtss;
-    }
 }

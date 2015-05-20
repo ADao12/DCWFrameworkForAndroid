@@ -1,5 +1,7 @@
 package com.dcw.app.rating.biz.pojo.business;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,11 +9,13 @@ import java.util.List;
  */
 public class Business {
 
-    private String business_id;
+	@SerializedName("business_id")
+	private String businessId;
 
     private String name;
 
-    private String branch_name;
+	@SerializedName("branch_name")
+	private String branchName;
 
     private String address;
 
@@ -27,57 +31,82 @@ public class Business {
 
     private String longitude;
 
-    private String avg_rating;
+	@SerializedName("avg_rating")
+	private String avgRating;
 
-    private String rating_img_url;
+	@SerializedName("rating_img_url")
+	private String ratingImgUrl;
 
-    private String rating_s_img_url;
+	@SerializedName("rating_s_img_url")
+	private String ratingSImgUrl;
 
-    private String product_grade;
+	@SerializedName("product_grade")
+	private String productGrade;
 
-    private String decoration_grade;
+	@SerializedName("decoration_grade")
+	private String decorationGrade;
 
-    private String service_grade;
+	@SerializedName("service_grade")
+	private String serviceGrade;
 
-    private String product_score;
+	@SerializedName("product_score")
+	private String productScore;
 
-    private String decoration_score;
+	@SerializedName("decoration_score")
+	private String decorationScore;
 
-    private String service_score;
+	@SerializedName("service_score")
+	private String serviceScore;
 
-    private String avg_price;
+	@SerializedName("avg_price")
+	private String avgPrice;
 
-    private String review_count;
+	@SerializedName("review_count")
+	private String reviewCount;
 
-    private String review_list_url;
+	@SerializedName("review_list_url")
+	private String reviewListUrl;
 
     private String distance;
 
-    private String business_url;
+	@SerializedName("business_url")
+	private String businessUrl;
 
-    private String photo_url;
+	@SerializedName("photo_url")
+	private String photoUrl;
 
-    private String s_photo_url;
+	@SerializedName("s_photo_url")
+	private String sPhotoUrl;
 
-    private String photo_count;
+	@SerializedName("photo_count")
+	private String photoCount;
 
-    private String photo_list_url;
+	@SerializedName("photo_list_url")
+	private String photoListUrl;
 
-    private String has_coupon;
+	@SerializedName("has_coupon")
+	private String hasCoupon;
 
-    private String coupon_id;
+	@SerializedName("coupon_id")
+	private String couponId;
 
-    private String coupon_description;
+	@SerializedName("coupon_description")
+	private String couponDescription;
 
-    private String coupon_url;
+	@SerializedName("coupon_url")
+	private String couponUrl;
 
-    private String has_deal;
+	@SerializedName("has_deal")
+	private String hasDeal;
 
-    private String deal_count;
+	@SerializedName("deal_count")
+	private String dealCount;
 
     private List<Deal> dealss ;
 
-    private String has_online_reservation;
+	@SerializedName("has_online_reservation")
+	private String hasOnlineReservation;
 
-    private String online_reservation_url;
+	@SerializedName("online_reservation_url")
+	private String onlineReservationUrl;
 }

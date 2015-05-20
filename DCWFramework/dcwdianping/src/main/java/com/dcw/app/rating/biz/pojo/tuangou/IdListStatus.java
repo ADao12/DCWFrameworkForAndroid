@@ -1,5 +1,7 @@
 package com.dcw.app.rating.biz.pojo.tuangou;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -11,24 +13,6 @@ public class IdListStatus {
 
     private String count;
 
-    private List<Integer> id_lists ;
-
-    public void setStatus(String status){
-        this.status = status;
-    }
-    public String getStatus(){
-        return this.status;
-    }
-    public void setCount(String count){
-        this.count = count;
-    }
-    public String getCount(){
-        return this.count;
-    }
-    public void setId_list(List<Integer> id_list){
-        this.id_lists = id_list;
-    }
-    public List<Integer> getId_list(){
-        return this.id_lists;
-    }
+	@SerializedName("id_lists")
+	private List<Integer> idLists;
 }

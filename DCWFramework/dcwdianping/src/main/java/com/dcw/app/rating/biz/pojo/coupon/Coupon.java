@@ -3,6 +3,7 @@ package com.dcw.app.rating.biz.pojo.coupon;
 import com.dcw.app.rating.biz.pojo.business.Business;
 import com.dcw.app.rating.biz.pojo.business.Category;
 import com.dcw.app.rating.biz.pojo.business.Region;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -11,7 +12,8 @@ import java.util.List;
  */
 public class Coupon {
 
-    private String coupon_id;
+	@SerializedName("coupon_id")
+	private String couponId;
 
     private String title;
 
@@ -21,19 +23,25 @@ public class Coupon {
 
     private List<Category> categoriess ;
 
-    private String download_count;
+	@SerializedName("download_count")
+	private String downloadCount;
 
-    private String publish_date;
+	@SerializedName("publish_date")
+	private String publishDate;
 
-    private String expiration_date;
+	@SerializedName("expiration_date")
+	private String expirationDate;
 
     private String distance;
 
-    private String logo_img_url;
+	@SerializedName("logo_img_url")
+	private String logoImgUrl;
 
-    private String coupon_url;
+	@SerializedName("coupon_url")
+	private String couponUrl;
 
-    private String coupon_h5_url;
+	@SerializedName("coupon_h5_url")
+	private String couponH5Url;
 
     private List<Business> businessess ;
 }
