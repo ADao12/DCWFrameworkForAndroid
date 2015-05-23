@@ -216,7 +216,11 @@ public class DCWAnnotation {
         } catch (Exception e) {
             throw new RuntimeException("Unable to inject views for " + target, e);
         }
-        return (View)source;
+        if (source instanceof View) {
+            return (View)source;
+        } else {
+            return null;
+        }
     }
 
     public static void initAnnotatedType(Object target, final Object source, Finder finder) throws InvocationTargetException

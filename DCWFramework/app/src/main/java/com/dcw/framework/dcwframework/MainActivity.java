@@ -2,11 +2,15 @@ package com.dcw.framework.dcwframework;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.dcw.framework.view.DCWAnnotation;
 import com.dcw.framework.view.annotation.InjectLayout;
+
+import java.lang.reflect.Field;
 
 @InjectLayout(R.layout.main)
 public class MainActivity extends FragmentActivity {
@@ -24,13 +28,32 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         DCWAnnotation.inject(this);
 //        mTVContent.setText("aaa");
 //        adapter = new SimpleAdapter(this);
 //        listOfThings.setAdapter(adapter);
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content, new AlignWrapFragment()).commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    private void getOverflowMenu() {
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if(menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 //    @Override
