@@ -1,2 +1,2 @@
-include ':app', ':dcwdianping', ':uiframework', ':dcwdaogenerator'
+include ':app', ':dcwdianping', ':dcwdaogenerator'
 include ':library'

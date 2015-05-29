@@ -7,8 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/dcwdaogenerator/dcwdaogenerator.iml" filepath="$PROJECT_DIR$/dcwdaogenerator/dcwdaogenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/dcwdianping/dcwdianping.iml" filepath="$PROJECT_DIR$/dcwdianping/dcwdianping.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/uiframework/uiframework.iml" filepath="$PROJECT_DIR$/uiframework/uiframework.iml" />
     </modules>
   </component>
 </project>
-
