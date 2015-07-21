@@ -1,6 +1,7 @@
 package com.dcw.app.rating.biz.test;
 
 import android.text.Spannable;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ import retrofit.http.GET;
 public class RichTextFragment extends BaseFragmentWrapper {
     private static final String TAG = "RichTextFragment";
 
-    @InjectView(R.id.tv_content)
+    @InjectView(value = R.id.tv_content, listeners = View.OnClickListener.class)
     private TextView mTVContent;
 
     @InjectView(R.id.tv_result)
@@ -55,7 +56,7 @@ public class RichTextFragment extends BaseFragmentWrapper {
         }, "www.google.com").append("\n2.给整个新文本添加点击\n").appendTouchableText("百度网址", new TouchableSpan.OnClickListener() {
             @Override
             public void onClick(String content) {
-                Toast.makeText(getActivity(), content, 0).show();
+                startFragment(StateViewFragment.class);
             }
         }, "www.baidu.com").append("\n3.给已存在文本添加点击\n").appendTouchableEdge(start, end, new TouchableSpan.OnClickListener() {
             @Override
