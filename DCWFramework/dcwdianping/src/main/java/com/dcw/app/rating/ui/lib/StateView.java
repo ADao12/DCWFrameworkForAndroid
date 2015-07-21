@@ -59,10 +59,10 @@ public class StateView extends FrameLayout {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.StateView, 0, 0);
 
         try {
-            setLoadingLayoutResourceId(a.getResourceId(R.styleable.StateView_svLoadingLayout, R.layout.sv__loading));
-            setGeneralErrorLayoutResourceId(a.getResourceId(R.styleable.StateView_svErrorUnknownLayout, R.layout.sv__error_unknown));
-            setNetworkErrorLayoutResourceId(a.getResourceId(R.styleable.StateView_svErrorNetworkLayout, R.layout.sv__error_network));
-            setEmptyLayoutResourceId(a.getResourceId(R.styleable.StateView_svEmptyLayout, R.layout.sv__empty));
+            setLoadingLayoutResourceId(a.getResourceId(R.styleable.StateView_StateView_svLoadingLayout, R.layout.sv__loading));
+            setGeneralErrorLayoutResourceId(a.getResourceId(R.styleable.StateView_StateView_svErrorUnknownLayout, R.layout.sv__error_unknown));
+            setNetworkErrorLayoutResourceId(a.getResourceId(R.styleable.StateView_StateView_svErrorNetworkLayout, R.layout.sv__error_network));
+            setEmptyLayoutResourceId(a.getResourceId(R.styleable.StateView_StateView_svEmptyLayout, R.layout.sv__empty));
             String tmpString;
 
             tmpString = a.getString(R.styleable.StateView_svErrorTitleNetworkStringId);
@@ -73,7 +73,7 @@ public class StateView extends FrameLayout {
 
             setNetworkErrorTitleString(tmpString);
 
-            tmpString = a.getString(R.styleable.StateView_svErrorTitleUnknownStringId);
+            tmpString = a.getString(R.styleable.StateView_StateView_svErrorTitleUnknownStringId);
 
             if (tmpString == null) {
                 tmpString = context.getString(R.string.error_title_unknown);
@@ -81,7 +81,7 @@ public class StateView extends FrameLayout {
 
             setGeneralErrorTitleString(tmpString);
 
-            tmpString = a.getString(R.styleable.StateView_svErrorTapToRetryStringId);
+            tmpString = a.getString(R.styleable.StateView_StateView_svErrorTapToRetryStringId);
 
             if (tmpString == null) {
                 tmpString = context.getString(R.string.tap_to_retry);
@@ -89,7 +89,7 @@ public class StateView extends FrameLayout {
 
             setTapToRetryString(tmpString);
 
-            setState(a.getInt(R.styleable.StateView_svState, ContentState.CONTENT.nativeInt));
+            setState(a.getInt(R.styleable.StateView_StateView_svState, ContentState.CONTENT.nativeInt));
         } finally {
             a.recycle();
         }
