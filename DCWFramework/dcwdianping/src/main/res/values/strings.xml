@@ -25,4 +25,7 @@
     <string name="error_must_be_number">Field must be a number</string>
     <string name="error_cannot_be_empty">Field cannot be empty</string>
 
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
 </resources>

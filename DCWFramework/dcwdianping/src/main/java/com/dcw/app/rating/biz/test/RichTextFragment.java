@@ -1,5 +1,7 @@
 package com.dcw.app.rating.biz.test;
 
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.view.View;
 import android.widget.TextView;
@@ -31,6 +33,9 @@ public class RichTextFragment extends BaseFragmentWrapper {
     @InjectView(R.id.tv_result)
     private TextView mTVResult;
 
+    @InjectView(R.id.toolbar)
+    private Toolbar mToolbar;
+
     @Override
     public Class getHostActivity() {
         return MainActivity.class;
@@ -43,6 +48,8 @@ public class RichTextFragment extends BaseFragmentWrapper {
 
     @Override
     public void initUI() {
+        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
+        mToolbar.setTitle("RichTextFragment");
         String text = "文本点击事件测试:\n1.给新文本添加部分点击\n谷歌\n2.给整个新文本添加点击\n百度网址\n";
         int start = text.length() + 3;
         int end = start + 5;

@@ -6,11 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 
 import com.dcw.framework.pac.basic.Environment;
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends ActionBarActivity {
 
     public final static String INTENT_EXTRA_FRAGMENT_TAG = "ftag";
     public final static String INTENT_EXTRA_IS_FORCE_NEW = "isForceNew";

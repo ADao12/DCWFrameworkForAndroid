@@ -14,18 +14,6 @@ import android.widget.TextView;
 
 import com.dcw.app.rating.R;
 
-/**
- * <p>Title: ucweb</p>
- * <p/>
- * <p>Description: </p>
- * <p/>
- * <p>Copyright: Copyright (c) 2015</p>
- * <p/>
- * <p>Company: ucweb.com</p>
- *
- * @author keger
- * @date 15/6/15
- */
 public class StateView extends FrameLayout {
     private StateViewData mViewState = new StateViewData(ContentState.CONTENT);
 
