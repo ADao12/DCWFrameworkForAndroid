@@ -48,9 +48,9 @@ public abstract class BaseFragmentWrapper extends BaseFragment implements ICreat
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (mRootView == null) {
             mRootView = DCWAnnotation.inject(this, inflater);
-            loadData();
+            initData();
             initUI();
-            setListeners();
+            initListeners();
         }
         if (mRootView != null) {
             ViewGroup parent = (ViewGroup) mRootView.getParent();

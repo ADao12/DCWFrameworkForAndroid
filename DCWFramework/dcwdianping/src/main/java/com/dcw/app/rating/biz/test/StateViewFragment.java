@@ -52,7 +52,7 @@ public class StateViewFragment extends BaseFragmentWrapper {
     }
 
     @Override
-    public void loadData() {
+    public void initData() {
 
     }
 
@@ -172,7 +172,7 @@ public class StateViewFragment extends BaseFragmentWrapper {
 
 
     @Override
-    public void setListeners() {
+    public void initListeners() {
 
     }
 

@@ -2,7 +2,7 @@ package com.dcw.app.rating.ui.adapter;
 
 public interface ICreateTemplate {
 
-    void loadData();
+    void initData();
     void initUI();
-    void setListeners();
+    void initListeners();
 }

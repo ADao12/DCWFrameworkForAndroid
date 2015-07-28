@@ -46,7 +46,7 @@ public class AbsListFragment extends BaseFragmentWrapper {
     }
 
     @Override
-    public void loadData() {
+    public void initData() {
         List<Cache> boxes = new ArrayList<Cache>();
         for (int i = 0; i < 10; i++) {
             Cache entity = new Cache();
@@ -78,7 +78,7 @@ public class AbsListFragment extends BaseFragmentWrapper {
     }
 
     @Override
-    public void setListeners() {
+    public void initListeners() {
 
     }
 

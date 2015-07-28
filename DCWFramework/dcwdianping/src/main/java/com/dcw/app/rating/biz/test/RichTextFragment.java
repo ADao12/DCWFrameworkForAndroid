@@ -42,7 +42,7 @@ public class RichTextFragment extends BaseFragmentWrapper {
     }
 
     @Override
-    public void loadData() {
+    public void initData() {
 
     }
 
@@ -113,7 +113,7 @@ public class RichTextFragment extends BaseFragmentWrapper {
     }
 
     @Override
-    public void setListeners() {
+    public void initListeners() {
 
     }
 
